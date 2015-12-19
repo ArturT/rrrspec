@@ -5,7 +5,7 @@ module RRRSpec
     class ServerConfiguration < Configuration
       attr_accessor :persistence_db
       attr_accessor :execute_log_text_path
-      attr_accessor :daemonize, :pidfile, :user
+      attr_accessor :daemonize, :pidfile, :pidfile_directory, :user
       attr_accessor :stdout_path, :stderr_path
       attr_accessor :monitor
 

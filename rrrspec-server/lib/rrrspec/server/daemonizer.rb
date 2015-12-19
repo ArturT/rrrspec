@@ -6,7 +6,8 @@ module RRRSpec
       $0 = process_name
       return block.call unless should_daemonize?
 
-      pidfile = File.absolute_path(RRRSpec.configuration.pidfile || File.join("/var/run", "#{process_name}.pid"))
+      pidfile_directory = RRRSpec.configuration.pidfile_directory || "/var/run"
+      pidfile = File.absolute_path(RRRSpec.configuration.pidfile || File.join(pidfile_directory, "#{process_name}.pid"))
       check_pidfile(pidfile)
 
       if stdout_path = RRRSpec.configuration.stdout_path
