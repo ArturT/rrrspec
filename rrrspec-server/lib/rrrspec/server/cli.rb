@@ -16,12 +16,14 @@ module RRRSpec
 
       method_option :daemonize, type: :boolean
       method_option :pidfile, type: :string
+      method_option :pidfile_directory, type: :string
       method_option :user, type: :string
       desc 'server', 'Run RRRSpec as a server'
       def server
         setup(ServerConfiguration.new)
         RRRSpec.configuration.daemonize = options[:daemonize] unless options[:daemonize] == nil
         RRRSpec.configuration.pidfile = options[:pidfile] unless options[:pidfile] == nil
+        RRRSpec.configuration.pidfile_directory = options[:pidfile_directory] unless options[:pidfile_directory] == nil
         RRRSpec.configuration.user = options[:user] unless options[:user] == nil
 
         RRRSpec::Server.daemonizer('rrrspec-server server') do
@@ -38,12 +40,14 @@ module RRRSpec
       method_option :'worker-type', type: :string
       method_option :daemonize, type: :boolean
       method_option :pidfile, type: :string
+      method_option :pidfile_directory, type: :string
       method_option :user, type: :string
       desc 'worker', 'Run RRRSpec as a worker'
       def worker
         setup(WorkerConfiguration.new)
         RRRSpec.configuration.daemonize = options[:daemonize] unless options[:daemonize] == nil
         RRRSpec.configuration.pidfile = options[:pidfile] unless options[:pidfile] == nil
+        RRRSpec.configuration.pidfile_directory = options[:pidfile_directory] unless options[:pidfile_directory] == nil
         RRRSpec.configuration.user = options[:user] unless options[:user] == nil
 
         RRRSpec::Server.daemonizer('rrrspec-server worker') do
