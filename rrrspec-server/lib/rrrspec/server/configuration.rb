@@ -34,7 +34,7 @@ module RRRSpec
     class WorkerConfiguration < Configuration
       attr_accessor :rsync_remote_path, :rsync_options
       attr_accessor :working_dir, :worker_type, :slave_processes
-      attr_accessor :daemonize, :pidfile, :pidfile_directory :user
+      attr_accessor :daemonize, :pidfile, :pidfile_directory, :user
       attr_accessor :stdout_path, :stderr_path
       attr_accessor :monitor
 
